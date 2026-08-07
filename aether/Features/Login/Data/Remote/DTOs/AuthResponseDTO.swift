@@ -1,0 +1,1 @@
+// Auth API Response DTO
