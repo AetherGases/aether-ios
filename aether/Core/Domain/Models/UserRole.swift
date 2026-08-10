@@ -1,1 +1,4 @@
-// User Role Model
+enum UserRole: String {
+    case manager
+    case employee
+}

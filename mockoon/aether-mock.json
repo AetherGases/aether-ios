@@ -1,0 +1,110 @@
+{
+  "name": "Aether Mock API",
+  "port": 3000,
+  "hostname": "0.0.0.0",
+  "openDashboard": false,
+  "routes": [
+    {
+      "method": "POST",
+      "endpoint": "/api/auth/login",
+      "enabled": true,
+      "responses": [
+        {
+          "status": 200,
+          "label": "Login success - Manager",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "id": "550e8400-e29b-41d4-a716-446655440000",
+            "name": "Ana Manager",
+            "email": "manager@aether.dev",
+            "phone": "+5511999999999",
+            "role": "manager",
+            "createdAt": "2024-01-15T10:30:00Z",
+            "updatedAt": "2024-01-15T10:30:00Z",
+            "idStorageFile": 1,
+            "token": "mock-jwt-token-manager-12345"
+          }
+        },
+        {
+          "status": 200,
+          "label": "Login success - Employee",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "id": "550e8400-e29b-41d4-a716-446655440001",
+            "name": "Bob Employee",
+            "email": "employee@aether.dev",
+            "phone": "+5511888888888",
+            "role": "employee",
+            "createdAt": "2024-01-15T10:30:00Z",
+            "updatedAt": "2024-01-15T10:30:00Z",
+            "idStorageFile": 2,
+            "token": "mock-jwt-token-employee-67890"
+          }
+        },
+        {
+          "status": 401,
+          "label": "Invalid credentials",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "error": "Invalid email or password"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/auth/me",
+      "enabled": true,
+      "responses": [
+        {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "id": "550e8400-e29b-41d4-a716-446655440000",
+            "name": "Ana Manager",
+            "email": "manager@aether.dev",
+            "phone": "+5511999999999",
+            "role": "manager",
+            "createdAt": "2024-01-15T10:30:00Z",
+            "updatedAt": "2024-01-15T10:30:00Z",
+            "idStorageFile": 1
+          }
+        },
+        {
+          "status": 401,
+          "label": "No token / expired",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "error": "Unauthorized"
+          }
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "endpoint": "/api/auth/logout",
+      "enabled": true,
+      "responses": [
+        {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "message": "Logged out successfully"
+          }
+        }
+      ]
+    }
+  ]
+}
