@@ -13,7 +13,7 @@ class AppCoordinator {
         let tokenStorage = container.makeTokenStorage()
                 
         if tokenStorage.isAuthenticated() {
-            // TODO
+            showHome()
         } else {
             showLogin()
         }
@@ -29,6 +29,16 @@ class AppCoordinator {
         loginViewController.configure(interactor: interactor, router: router)
         
         navigationController.viewControllers = [loginViewController]
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+    }
+    
+    func showHome() {
+        let navigationController = UINavigationController()
+        
+        let homeViewController = container.makeHomeViewController(navigationController: navigationController)
+        
+        navigationController.viewControllers = [homeViewController]
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
