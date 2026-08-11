@@ -10,20 +10,14 @@ class LoginUseCase: LoginUseCaseProtocol {
     }
     
     func execute(email: String, password: String) async throws -> AuthResponseDTO {
-        
-        guard !email.isEmpty && !password.isEmpty else {
-            throw LoginError.emptyFields
-        }
-        
         let response = try await repository.login(email: email, password: password)
         
         tokenStorage.saveToken(response.accessToken)
-        tokenStorage.saveEmail(response.email)
-                
+        if let refreshToken = response.refreshToken {
+            tokenStorage.saveRefreshToken(refreshToken)
+        }
+        tokenStorage.saveEmail(email)
+        
         return response
     }
-}
-
-enum LoginError: Error {
-    case emptyFields
 }

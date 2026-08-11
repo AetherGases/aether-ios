@@ -39,6 +39,18 @@ class DependencyContainer {
     }
     
     func makeLoginRouter(navigationController: UINavigationController) -> LoginRouterProtocol {
-        return LoginRouter(navigationController: navigationController)
+        return LoginRouter(navigationController: navigationController, container: self)
+    }
+    
+    // MARK: - Home
+    func makeHomeViewController(navigationController: UINavigationController) -> HomeViewController {
+        let viewController = HomeViewController()
+        let presenter = HomePresenter(view: viewController)
+        let interactor = HomeInteractor(presenter: presenter, tokenStorage: tokenStorage)
+        let router = HomeRouter(navigationController: navigationController, container: self)
+        
+        viewController.configure(interactor: interactor, router: router)
+        
+        return viewController
     }
 }

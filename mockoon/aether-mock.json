@@ -54,7 +54,7 @@
       "streamingInterval": 0
     },
     {
-      "method": "get",
+      "method": "post",
       "endpoint": "api/auth/refresh/{email}",
       "responses": [
         {
@@ -104,7 +104,7 @@
       "streamingInterval": 0
     },
     {
-      "method": "get",
+      "method": "post",
       "endpoint": "api/auth/logout",
       "responses": [
         {

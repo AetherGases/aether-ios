@@ -35,9 +35,11 @@ class LoginViewController: UIViewController {
         emailTextField.borderStyle = .roundedRect
         emailTextField.autocapitalizationType = .none
         emailTextField.autocorrectionType = .no
+        emailTextField.textContentType = .emailAddress
         
         passwordTextField.placeholder = "Senha"
         passwordTextField.borderStyle = .roundedRect
+        passwordTextField.textContentType = .password
         passwordTextField.isSecureTextEntry = true
         
         loginButton.setTitle("Entrar", for: .normal)
