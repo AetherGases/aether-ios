@@ -55,11 +55,11 @@
     },
     {
       "method": "get",
-      "endpoint": "api/auth/me",
+      "endpoint": "api/auth/refresh/{email}",
       "responses": [
         {
           "headers": [],
-          "body": "{}",
+          "body": "{\n  \"email\": \"manager@aether.dev\",\n  \"access_token\": \"mock-access-token-12345\",\n  \"authenticated\": true,\n  \"created\": \"2024-01-15T10:30:00Z\",\n  \"expiration\": \"2024-12-31T23:59:59Z\",\n  \"refresh_token\": \"mock-refresh-token-67890\"\n}\n",
           "uuid": "7d9ea37a-2e32-4ea7-8137-f88f44a84637",
           "latency": 0,
           "statusCode": 200,
