@@ -13,9 +13,7 @@ class LoginUseCase: LoginUseCaseProtocol {
         let response = try await repository.login(email: email, password: password)
         
         tokenStorage.saveToken(response.accessToken)
-        if let refreshToken = response.refreshToken {
-            tokenStorage.saveRefreshToken(refreshToken)
-        }
+        tokenStorage.saveRefreshToken(response.refreshToken)
         tokenStorage.saveEmail(email)
         
         return response

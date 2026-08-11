@@ -15,7 +15,18 @@ enum Login {
     
     // Presenter -> View
     struct ViewModel {
-        let welcomeMessage: String
+        let message: String
         let isAuthenticated: Bool
+    }
+    
+    enum ValidationError: Error {
+        case emptyEmail
+        case invalidEmailFormat
+        case emptyPassword
+        case shortPassword
+        case noNumberPassword
+        case noSpecialCharacterPassword
+        case noUpperPassword
+        case noLowerPassword
     }
 }
