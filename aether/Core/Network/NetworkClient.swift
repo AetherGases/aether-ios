@@ -4,7 +4,7 @@ class NetworkClient: NetworkClientProtocol {
     
     private let baseURL: String
     
-    init(baseURL: String = "https://mock.aether.dev/api") {
+    init(baseURL: String = "http://localhost:3000") {
         self.baseURL = baseURL
     }
     
@@ -36,7 +36,9 @@ class NetworkClient: NetworkClientProtocol {
             throw NetworkError.unexpectedStatus(httpResponse.statusCode)
         }
 
-        return try JSONDecoder().decode(T.self, from: data)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try decoder.decode(T.self, from: data)
         
     }
 }
