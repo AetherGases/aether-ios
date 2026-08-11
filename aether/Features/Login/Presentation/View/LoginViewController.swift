@@ -77,14 +77,14 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LoginViewControllerProtocol {
     func displayLoginSuccess(viewModel: Login.ViewModel) {
         DispatchQueue.main.async {
-            self.statusLabel.text = viewModel.welcomeMessage
+            self.statusLabel.text = viewModel.message
             self.router?.routeToHome()
         }
     }
     
     func displayLoginFailure(viewModel: Login.ViewModel) {
         DispatchQueue.main.async {
-            self.statusLabel.text = viewModel.welcomeMessage
+            self.statusLabel.text = viewModel.message
         }
     }
 }
