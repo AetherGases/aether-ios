@@ -3,7 +3,7 @@ import UIKit
 class DependencyContainer {
     
     private lazy var networkClient: NetworkClientProtocol = {
-        NetworkClient(baseURL: "http://localhost:3000")
+        NetworkClient(baseURL: "http://localhost:3000", tokenStorage: tokenStorage)
     }()
        
     private lazy var tokenStorage: AuthTokenStorageProtocol = {

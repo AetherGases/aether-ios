@@ -14,4 +14,14 @@ class AuthRepository: AuthRepositoryProtocol {
             body: body
         )
     }
+    
+    func refresh(email: String, token: String) async throws -> AuthResponseDTO {
+        let body = RefreshRequestDTO(email: email, token: token)
+        
+        return try await networkClient.request(
+            endpoint: AuthAPI.refresh(email: email).path,
+            method: AuthAPI.refresh(email: email).method,
+            body: body
+        )
+    }
 }

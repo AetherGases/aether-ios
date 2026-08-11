@@ -10,23 +10,26 @@ class AppCoordinator {
     }
     
     func start() {
-        let navigationController = UINavigationController()
-        
-        let loginController = makeLoginViewController(navigationController: navigationController)
-        navigationController.viewControllers = [loginController]
-        
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
+        let tokenStorage = container.makeTokenStorage()
+                
+        if tokenStorage.isAuthenticated() {
+            // TODO
+        } else {
+            showLogin()
+        }
     }
     
-    private func makeLoginViewController(navigationController: UINavigationController) -> UIViewController {
-        let viewController = container.makeLoginViewController()
+    func showLogin() {
+        let navigationController = UINavigationController()
         
-        let interactor = container.makeLoginInteractor(view: viewController)
+        let loginViewController = container.makeLoginViewController()
+        let interactor = container.makeLoginInteractor(view: loginViewController)
         let router = container.makeLoginRouter(navigationController: navigationController)
         
-        viewController.configure(interactor: interactor, router: router)
+        loginViewController.configure(interactor: interactor, router: router)
         
-        return viewController
+        navigationController.viewControllers = [loginViewController]
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
 }
