@@ -2,109 +2,174 @@
   "name": "Aether Mock API",
   "port": 3000,
   "hostname": "0.0.0.0",
-  "openDashboard": false,
   "routes": [
     {
-      "method": "POST",
-      "endpoint": "/api/auth/login",
-      "enabled": true,
+      "method": "post",
+      "endpoint": "api/auth/login",
       "responses": [
         {
-          "status": 200,
-          "label": "Login success - Manager",
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "body": {
-            "id": "550e8400-e29b-41d4-a716-446655440000",
-            "name": "Ana Manager",
-            "email": "manager@aether.dev",
-            "phone": "+5511999999999",
-            "role": "manager",
-            "createdAt": "2024-01-15T10:30:00Z",
-            "updatedAt": "2024-01-15T10:30:00Z",
-            "idStorageFile": 1,
-            "token": "mock-jwt-token-manager-12345"
-          }
+          "label": "Login success",
+          "headers": [],
+          "body": "{\n  \"email\": \"manager@aether.dev\",\n  \"access_token\": \"mock-access-token-12345\",\n  \"authenticated\": true,\n  \"created\": \"2024-01-15T10:30:00Z\",\n  \"expiration\": \"2024-12-31T23:59:59Z\",\n  \"refresh_token\": \"mock-refresh-token-67890\"\n}\n",
+          "uuid": "c83d422d-c2e5-4e2b-8c1a-579187467165",
+          "latency": 0,
+          "statusCode": 200,
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
         },
         {
-          "status": 200,
-          "label": "Login success - Employee",
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "body": {
-            "id": "550e8400-e29b-41d4-a716-446655440001",
-            "name": "Bob Employee",
-            "email": "employee@aether.dev",
-            "phone": "+5511888888888",
-            "role": "employee",
-            "createdAt": "2024-01-15T10:30:00Z",
-            "updatedAt": "2024-01-15T10:30:00Z",
-            "idStorageFile": 2,
-            "token": "mock-jwt-token-employee-67890"
-          }
-        },
-        {
-          "status": 401,
           "label": "Invalid credentials",
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "body": {
-            "error": "Invalid email or password"
-          }
+          "headers": [],
+          "body": "{}",
+          "uuid": "a529a7e3-e81d-4f66-86e5-84b74fbd597e",
+          "latency": 0,
+          "statusCode": 200,
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
         }
-      ]
+      ],
+      "uuid": "12ae5dd5-b732-4443-99f4-49faf5213f4f",
+      "type": "http",
+      "documentation": "",
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     },
     {
-      "method": "GET",
-      "endpoint": "/api/auth/me",
-      "enabled": true,
+      "method": "get",
+      "endpoint": "api/auth/me",
       "responses": [
         {
-          "status": 200,
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "body": {
-            "id": "550e8400-e29b-41d4-a716-446655440000",
-            "name": "Ana Manager",
-            "email": "manager@aether.dev",
-            "phone": "+5511999999999",
-            "role": "manager",
-            "createdAt": "2024-01-15T10:30:00Z",
-            "updatedAt": "2024-01-15T10:30:00Z",
-            "idStorageFile": 1
-          }
+          "headers": [],
+          "body": "{}",
+          "uuid": "7d9ea37a-2e32-4ea7-8137-f88f44a84637",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
         },
         {
-          "status": 401,
           "label": "No token / expired",
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "body": {
-            "error": "Unauthorized"
-          }
+          "headers": [],
+          "body": "{}",
+          "uuid": "baa8a88b-def4-4ac0-88df-a63019cb2042",
+          "latency": 0,
+          "statusCode": 200,
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
         }
-      ]
+      ],
+      "uuid": "810a571f-0237-4fae-beac-3811111a3fe7",
+      "type": "http",
+      "documentation": "",
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     },
     {
-      "method": "POST",
-      "endpoint": "/api/auth/logout",
-      "enabled": true,
+      "method": "get",
+      "endpoint": "api/auth/logout",
       "responses": [
         {
-          "status": 200,
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "body": {
-            "message": "Logged out successfully"
-          }
+          "headers": [],
+          "body": "{\n  \"\"\n}",
+          "uuid": "a3c50592-0fe3-4c56-a775-1c57d26fed06",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
         }
-      ]
+      ],
+      "uuid": "4630873d-7bcc-4e5a-987b-78fad589e94f",
+      "type": "http",
+      "documentation": "",
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
-  ]
+  ],
+  "uuid": "dfebc362-3e1f-4474-a3f2-3f30b506e50b",
+  "lastMigration": 33,
+  "endpointPrefix": "",
+  "latency": 0,
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "12ae5dd5-b732-4443-99f4-49faf5213f4f"
+    },
+    {
+      "type": "route",
+      "uuid": "810a571f-0237-4fae-beac-3811111a3fe7"
+    },
+    {
+      "type": "route",
+      "uuid": "4630873d-7bcc-4e5a-987b-78fad589e94f"
+    }
+  ],
+  "folders": [],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [],
+  "proxyResHeaders": [],
+  "data": [],
+  "callbacks": []
 }
