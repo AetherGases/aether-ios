@@ -10,9 +10,10 @@ class LoginViewController: UIViewController {
     private var router: LoginRouterProtocol?
     
     // MARK: - UI Elements
+    private let titleLabel = UILabel()
     private let emailTextField = UITextField()
     private let passwordTextField = UITextField()
-    private let loginButton = UIButton(configuration: .filled())
+    private let loginButton = UIButton(type: .system)
     private let statusLabel = UILabel()
     
     // MARK: - Setup
@@ -28,28 +29,56 @@ class LoginViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
-        view.backgroundColor = .systemBackground
-        title = "Login"
+        view.backgroundColor = AetherTheme.background
+        
+        titleLabel.text = "Bem-vindo ao Aether"
+        titleLabel.textColor = AetherTheme.textPrimary
+        titleLabel.font = AetherFont.titleLarge()
+        titleLabel.textAlignment = .center
         
         emailTextField.placeholder = "Email"
         emailTextField.borderStyle = .roundedRect
         emailTextField.autocapitalizationType = .none
         emailTextField.autocorrectionType = .no
         emailTextField.textContentType = .emailAddress
+        emailTextField.textColor = AetherTheme.textPrimary
+        emailTextField.font = AetherFont.bodyMedium()
+        emailTextField.attributedPlaceholder = NSAttributedString(
+            string: "Email",
+            attributes: [
+                .foregroundColor: AetherTheme.inputPlaceholder,
+                .font: AetherFont.bodyMedium()
+            ]
+        )
         
         passwordTextField.placeholder = "Senha"
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.textContentType = .password
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.textColor = AetherTheme.textPrimary
+        passwordTextField.font = AetherFont.bodyMedium()
+        passwordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Senha",
+            attributes: [
+                .foregroundColor: AetherTheme.inputPlaceholder,
+                .font: AetherFont.bodyMedium()
+            ]
+        )
         
         loginButton.setTitle("Entrar", for: .normal)
+        loginButton.setTitleColor(AetherTheme.buttonText, for: .normal)
+        loginButton.backgroundColor = AetherTheme.buttonBackground
+        loginButton.titleLabel?.font = AetherFont.labelLarge(weight: .semiBold)
+        loginButton.layer.cornerRadius = 8
         loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
         
         statusLabel.text = "Faça login para continuar"
+        statusLabel.textColor = AetherTheme.textSecondary
+        statusLabel.font = AetherFont.bodyMedium()
         statusLabel.textAlignment = .center
+        statusLabel.numberOfLines = 0
         
-        // Layout (simples — depois melhoramos com constraints)
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, statusLabel])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, emailTextField, passwordTextField, loginButton, statusLabel])
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -84,6 +113,7 @@ extension LoginViewController: LoginViewControllerProtocol {
     
     func displayLoginFailure(viewModel: Login.ViewModel) {
         DispatchQueue.main.async {
+            self.statusLabel.textColor = AetherTheme.error
             self.statusLabel.text = viewModel.message
         }
     }

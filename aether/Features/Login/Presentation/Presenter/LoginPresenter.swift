@@ -38,6 +38,8 @@ class LoginPresenter: LoginPresenterProtocol {
                 return "Informe sua senha"
             case Login.ValidationError.shortPassword:
                 return "Senha deve incluir 8 ou mais caracteres"
+            case Login.ValidationError.noNumberPassword:
+                return "Senha deve incluir número"
             case Login.ValidationError.noSpecialCharacterPassword:
                 return "Senha deve incluir caractere especial"
             case Login.ValidationError.noUpperPassword:
@@ -55,6 +57,7 @@ class LoginPresenter: LoginPresenterProtocol {
             case is URLError:
                 return "Sem conexão com o servidor. Verifique se o Mockoon está rodando"
             default:
+                print(error)
                 return "Algo deu errado. Tente novamente"
             }
         }
