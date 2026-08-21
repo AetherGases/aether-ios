@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A7D0DF1A3026609000462722 /* Aether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aether.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7D0DF293026609200462722 /* AetherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AetherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7D0DF333026609200462722 /* AetherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AetherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7D0DF1A3026609000462722 /* aether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aether.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7D0DF293026609200462722 /* aetherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aetherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7D0DF333026609200462722 /* aetherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aetherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -85,9 +85,9 @@
 		A7D0DF1B3026609000462722 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A7D0DF1A3026609000462722 /* Aether.app */,
-				A7D0DF293026609200462722 /* AetherTests.xctest */,
-				A7D0DF333026609200462722 /* AetherUITests.xctest */,
+				A7D0DF1A3026609000462722 /* aether.app */,
+				A7D0DF293026609200462722 /* aetherTests.xctest */,
+				A7D0DF333026609200462722 /* aetherUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A7D0DF193026609000462722 /* Aether */ = {
+		A7D0DF193026609000462722 /* aether */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7D0DF3D3026609200462722 /* Build configuration list for PBXNativeTarget "Aether" */;
+			buildConfigurationList = A7D0DF3D3026609200462722 /* Build configuration list for PBXNativeTarget "aether" */;
 			buildPhases = (
 				A7D0DF163026609000462722 /* Sources */,
 				A7D0DF173026609000462722 /* Frameworks */,
@@ -110,16 +110,16 @@
 			fileSystemSynchronizedGroups = (
 				A7D0DF1C3026609000462722 /* aether */,
 			);
-			name = Aether;
+			name = aether;
 			packageProductDependencies = (
 			);
 			productName = aether;
-			productReference = A7D0DF1A3026609000462722 /* Aether.app */;
+			productReference = A7D0DF1A3026609000462722 /* aether.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A7D0DF283026609200462722 /* AetherTests */ = {
+		A7D0DF283026609200462722 /* aetherTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7D0DF403026609200462722 /* Build configuration list for PBXNativeTarget "AetherTests" */;
+			buildConfigurationList = A7D0DF403026609200462722 /* Build configuration list for PBXNativeTarget "aetherTests" */;
 			buildPhases = (
 				A7D0DF253026609200462722 /* Sources */,
 				A7D0DF263026609200462722 /* Frameworks */,
@@ -133,16 +133,16 @@
 			fileSystemSynchronizedGroups = (
 				A7D0DF2C3026609200462722 /* aetherTests */,
 			);
-			name = AetherTests;
+			name = aetherTests;
 			packageProductDependencies = (
 			);
 			productName = aetherTests;
-			productReference = A7D0DF293026609200462722 /* AetherTests.xctest */;
+			productReference = A7D0DF293026609200462722 /* aetherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A7D0DF323026609200462722 /* AetherUITests */ = {
+		A7D0DF323026609200462722 /* aetherUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7D0DF433026609200462722 /* Build configuration list for PBXNativeTarget "AetherUITests" */;
+			buildConfigurationList = A7D0DF433026609200462722 /* Build configuration list for PBXNativeTarget "aetherUITests" */;
 			buildPhases = (
 				A7D0DF2F3026609200462722 /* Sources */,
 				A7D0DF303026609200462722 /* Frameworks */,
@@ -156,11 +156,11 @@
 			fileSystemSynchronizedGroups = (
 				A7D0DF363026609200462722 /* aetherUITests */,
 			);
-			name = AetherUITests;
+			name = aetherUITests;
 			packageProductDependencies = (
 			);
 			productName = aetherUITests;
-			productReference = A7D0DF333026609200462722 /* AetherUITests.xctest */;
+			productReference = A7D0DF333026609200462722 /* aetherUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A7D0DF153026609000462722 /* Build configuration list for PBXProject "Aether" */;
+			buildConfigurationList = A7D0DF153026609000462722 /* Build configuration list for PBXProject "aether" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A7D0DF193026609000462722 /* Aether */,
-				A7D0DF283026609200462722 /* AetherTests */,
-				A7D0DF323026609200462722 /* AetherUITests */,
+				A7D0DF193026609000462722 /* aether */,
+				A7D0DF283026609200462722 /* aetherTests */,
+				A7D0DF323026609200462722 /* aetherUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		A7D0DF2B3026609200462722 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A7D0DF193026609000462722 /* Aether */;
+			target = A7D0DF193026609000462722 /* aether */;
 			targetProxy = A7D0DF2A3026609200462722 /* PBXContainerItemProxy */;
 		};
 		A7D0DF353026609200462722 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A7D0DF193026609000462722 /* Aether */;
+			target = A7D0DF193026609000462722 /* aether */;
 			targetProxy = A7D0DF343026609200462722 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -393,9 +393,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = Purple500;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Aether;
@@ -412,7 +411,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = aether.aether;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -428,9 +426,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = Purple500;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Aether;
@@ -447,7 +444,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = aether.aether;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -477,7 +473,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aether.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Aether";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/aether.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/aether";
 			};
 			name = Debug;
 		};
@@ -500,7 +496,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aether.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Aether";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/aether.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/aether";
 			};
 			name = Release;
 		};
@@ -549,7 +545,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A7D0DF153026609000462722 /* Build configuration list for PBXProject "Aether" */ = {
+		A7D0DF153026609000462722 /* Build configuration list for PBXProject "aether" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7D0DF3B3026609200462722 /* Debug */,
@@ -558,7 +554,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7D0DF3D3026609200462722 /* Build configuration list for PBXNativeTarget "Aether" */ = {
+		A7D0DF3D3026609200462722 /* Build configuration list for PBXNativeTarget "aether" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7D0DF3E3026609200462722 /* Debug */,
@@ -567,7 +563,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7D0DF403026609200462722 /* Build configuration list for PBXNativeTarget "AetherTests" */ = {
+		A7D0DF403026609200462722 /* Build configuration list for PBXNativeTarget "aetherTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7D0DF413026609200462722 /* Debug */,
@@ -576,7 +572,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7D0DF433026609200462722 /* Build configuration list for PBXNativeTarget "AetherUITests" */ = {
+		A7D0DF433026609200462722 /* Build configuration list for PBXNativeTarget "aetherUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7D0DF443026609200462722 /* Debug */,
