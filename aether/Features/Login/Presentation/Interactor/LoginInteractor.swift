@@ -83,7 +83,7 @@ class LoginInteractor: LoginInteractorProtocol {
     }
     
     private func hasSpecialCharacterPassword(_ password: String) -> Bool {
-        let regex = ".*[@#\\$%&\\(\\)-\\+=\\{\\}\\[\\]<>;,\\*].*"
+        let regex = ".*[@#\\$%&\\(\\)\\-\\+=\\{\\}\\[\\]<>;,\\*].*"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: password)
     }
     
