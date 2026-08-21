@@ -57,7 +57,6 @@ class LoginPresenter: LoginPresenterProtocol {
             case is URLError:
                 return "Sem conexão com o servidor. Verifique se o Mockoon está rodando"
             default:
-                print(error)
                 return "Algo deu errado. Tente novamente"
             }
         }
