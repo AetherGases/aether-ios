@@ -38,6 +38,8 @@ class LoginPresenter: LoginPresenterProtocol {
                 return "Informe sua senha"
             case Login.ValidationError.shortPassword:
                 return "Senha deve incluir 8 ou mais caracteres"
+            case Login.ValidationError.noNumberPassword:
+                return "Senha deve incluir número"
             case Login.ValidationError.noSpecialCharacterPassword:
                 return "Senha deve incluir caractere especial"
             case Login.ValidationError.noUpperPassword:
