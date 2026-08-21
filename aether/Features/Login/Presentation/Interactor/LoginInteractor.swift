@@ -16,9 +16,6 @@ class LoginInteractor: LoginInteractorProtocol {
     func login(request: Login.Request) {
         do {
             try validate(request: request)
-        } catch let error as Login.ValidationError {
-            presenter.presentLoginFailure(error: error)
-            return
         } catch {
             presenter.presentLoginFailure(error: error)
             return

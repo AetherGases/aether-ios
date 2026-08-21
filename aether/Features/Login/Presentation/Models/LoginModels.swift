@@ -19,7 +19,7 @@ enum Login {
         let isAuthenticated: Bool
     }
     
-    enum ValidationError: Error {
+    enum ValidationError: Error, Equatable {
         case emptyEmail
         case invalidEmailFormat
         case emptyPassword
