@@ -7,7 +7,7 @@ class DependencyContainer {
     }()
 
     private lazy var networkClient: NetworkClient = {
-        NetworkClient(baseURL: "http://localhost:3000", tokenStorage: tokenStorage)
+        NetworkClient(baseURL: NetworkConfig.baseURL, tokenStorage: tokenStorage)
     }()
 
     // Criado uma única vez e injetado de volta no NetworkClient logo abaixo,
