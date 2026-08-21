@@ -36,36 +36,36 @@ class DependencyContainer {
     func makeAuthRepository() -> AuthRepositoryProtocol {
         return authRepository
     }
-    
+
     func makeLoginUseCase() -> LoginUseCaseProtocol {
         return LoginUseCase(repository: makeAuthRepository(), tokenStorage: tokenStorage)
     }
-    
+
     func makeLoginInteractor(view: LoginViewControllerProtocol) -> LoginInteractorProtocol {
         return LoginInteractor(loginUseCase: makeLoginUseCase(), presenter: makeLoginPresenter(view: view))
     }
-    
+
     func makeLoginPresenter(view: LoginViewControllerProtocol) -> LoginPresenterProtocol {
         return LoginPresenter(view: view)
     }
-    
+
     func makeLoginViewController() -> LoginViewController {
         return LoginViewController()
     }
-    
+
     func makeLoginRouter(navigationController: UINavigationController) -> LoginRouterProtocol {
         return LoginRouter(navigationController: navigationController, container: self)
     }
-    
+
     // MARK: - Home
     func makeHomeViewController(navigationController: UINavigationController) -> HomeViewController {
         let viewController = HomeViewController()
         let presenter = HomePresenter(view: viewController)
         let interactor = HomeInteractor(presenter: presenter, tokenStorage: tokenStorage)
         let router = HomeRouter(navigationController: navigationController, container: self)
-        
+
         viewController.configure(interactor: interactor, router: router)
-        
+
         return viewController
     }
 }
