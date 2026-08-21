@@ -6,7 +6,7 @@ class NetworkClient: NetworkClientProtocol {
     private let tokenStorage: AuthTokenStorageProtocol?
     var authRepository: AuthRepositoryProtocol?
 
-    init(baseURL: String = "http://localhost:3000", tokenStorage: AuthTokenStorageProtocol? = nil, authRepository: AuthRepositoryProtocol? = nil) {
+    init(baseURL: String = NetworkConfig.baseURL, tokenStorage: AuthTokenStorageProtocol? = nil, authRepository: AuthRepositoryProtocol? = nil) {
         self.baseURL = baseURL
         self.tokenStorage = tokenStorage
         self.authRepository = authRepository
