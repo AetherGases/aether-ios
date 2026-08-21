@@ -14,6 +14,15 @@ class NetworkClient: NetworkClientProtocol {
 
     func request<T>(endpoint: String, method: HTTPMethod, body: (any Encodable)?) async throws -> T
     where T: Decodable {
+        try await request(endpoint: endpoint, method: method, body: body, retriedAfterRefresh: false)
+    }
+
+    private func request<T>(
+        endpoint: String,
+        method: HTTPMethod,
+        body: (any Encodable)?,
+        retriedAfterRefresh: Bool
+    ) async throws -> T where T: Decodable {
 
         guard let url = URL(string: "\(baseURL)\(endpoint)") else {
             throw NetworkError.invalidURL
@@ -37,21 +46,23 @@ class NetworkClient: NetworkClientProtocol {
             throw NetworkError.invalidResponse
         }
 
+        // Só tenta renovar o token uma vez por chamada original — evita recursão
+        // infinita caso o servidor continue devolvendo 401 após o refresh.
         if httpResponse.statusCode == 401,
+           !retriedAfterRefresh,
            let email = tokenStorage?.getEmail(),
            let refreshToken = tokenStorage?.getRefreshToken() {
-            do {
-                let authResponse = try await authRepository?.refresh(email: email, token: refreshToken)
 
-                guard let authResponse = authResponse else {
-                    throw NetworkError.unexpectedError
-                }
+            let authResponse = try await authRepository?.refresh(email: email, token: refreshToken)
 
-                tokenStorage?.saveToken(authResponse.accessToken)
-                tokenStorage?.saveRefreshToken(authResponse.refreshToken)
-
-                return try await request(endpoint: endpoint, method: method, body: body)
+            guard let authResponse = authResponse else {
+                throw NetworkError.unexpectedError
             }
+
+            tokenStorage?.saveToken(authResponse.accessToken)
+            tokenStorage?.saveRefreshToken(authResponse.refreshToken)
+
+            return try await request(endpoint: endpoint, method: method, body: body, retriedAfterRefresh: true)
         }
 
         guard (200...299).contains(httpResponse.statusCode) else {
