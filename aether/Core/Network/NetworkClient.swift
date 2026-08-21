@@ -4,7 +4,7 @@ class NetworkClient: NetworkClientProtocol {
     
     private let baseURL: String
     private let tokenStorage: AuthTokenStorageProtocol?
-    private let authRepository: AuthRepositoryProtocol?
+    var authRepository: AuthRepositoryProtocol?
     
     init(baseURL: String = "http://localhost:3000", tokenStorage: AuthTokenStorageProtocol? = nil, authRepository: AuthRepositoryProtocol? = nil) {
         self.baseURL = baseURL

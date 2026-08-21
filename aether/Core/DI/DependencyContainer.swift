@@ -1,25 +1,40 @@
 import UIKit
 
 class DependencyContainer {
-    
-    private lazy var networkClient: NetworkClientProtocol = {
-        NetworkClient(baseURL: "http://localhost:3000", tokenStorage: tokenStorage)
-    }()
-       
+
     private lazy var tokenStorage: AuthTokenStorageProtocol = {
         KeychainTokenStorage()
     }()
-    
+
+    private lazy var networkClient: NetworkClient = {
+        NetworkClient(baseURL: "http://localhost:3000", tokenStorage: tokenStorage)
+    }()
+
+    // Criado uma única vez e injetado de volta no NetworkClient logo abaixo,
+    // para permitir que ele dispare o refresh automático em respostas 401
+    // sem gerar um ciclo de inicialização entre as duas dependências.
+    private lazy var authRepository: AuthRepositoryProtocol = {
+        let repository = AuthRepository(networkClient: networkClient)
+        networkClient.authRepository = repository
+        return repository
+    }()
+
+    init() {
+        // Força a resolução do authRepository (e a fiação acima) assim que o
+        // container é criado, antes de qualquer request passar pelo NetworkClient.
+        _ = authRepository
+    }
+
     func makeNetworkClient() -> NetworkClientProtocol {
         return networkClient
     }
-    
+
     func makeTokenStorage() -> AuthTokenStorageProtocol {
         return tokenStorage
     }
-    
+
     func makeAuthRepository() -> AuthRepositoryProtocol {
-        return AuthRepository(networkClient: networkClient)
+        return authRepository
     }
     
     func makeLoginUseCase() -> LoginUseCaseProtocol {
